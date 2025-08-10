@@ -1,0 +1,616 @@
+.wordcloud-wrapper{
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  .text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    max-width: 900px;
+  }
+  h2{
+    font-size: 36px;
+  }
+}
+
+.wordcloud{
+  position: absolute;
+  top: -100px;
+}
+
+.wordcloud p{
+  cursor: not-allowed;
+  pointer-events: none;
+  font-size: 18px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  margin: 14px;
+  vertical-align: middle;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: scale(0) translate(-50%, -50%);
+  text-align: center;
+  z-index: -1;
+  &:nth-child(2n){
+    background-color: #f23652;
+  }
+  &:nth-child(2n+1){
+    background-color: #fff;
+  }
+}
+
+.wordcloud p:nth-child(1) {
+  animation-name: scale;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-delay: 2s;
+  opacity: 0;
+}
+
+
+
+@keyframes scale {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  33% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+  66% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+.wordcloud p:nth-child(2) {
+  animation-name: scale;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-delay: 3s;
+  opacity: 0;
+}
+
+
+
+@keyframes scale {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  33% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+  66% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+.wordcloud p:nth-child(3) {
+  animation-name: scale;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-delay: 4s;
+  opacity: 0;
+}
+
+
+
+@keyframes scale {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  33% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+  66% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+.wordcloud p:nth-child(4) {
+  animation-name: scale;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-delay: 5s;
+  opacity: 0;
+}
+
+
+
+@keyframes scale {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  33% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+  66% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+.wordcloud p:nth-child(5) {
+  animation-name: scale;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-delay: 6s;
+  opacity: 0;
+}
+
+
+
+@keyframes scale {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  33% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+  66% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+.wordcloud p:nth-child(6) {
+  animation-name: scale;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-delay: 7s;
+  opacity: 0;
+}
+
+
+
+@keyframes scale {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  33% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+  66% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+.wordcloud p:nth-child(7) {
+  animation-name: scale;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-delay: 8s;
+  opacity: 0;
+}
+
+
+
+@keyframes scale {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  33% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+  66% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+.wordcloud p:nth-child(8) {
+  animation-name: scale;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-delay: 9s;
+  opacity: 0;
+}
+
+
+
+@keyframes scale {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  33% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+  66% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+.wordcloud p:nth-child(9) {
+  animation-name: scale;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-delay: 10s;
+  opacity: 0;
+}
+
+
+
+@keyframes scale {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  33% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+  66% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+.wordcloud p:nth-child(10) {
+  animation-name: scale;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-delay: 11s;
+  opacity: 0;
+}
+
+
+
+@keyframes scale {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  33% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+  66% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+.wordcloud p:nth-child(11) {
+  animation-name: scale;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-delay: 12s;
+  opacity: 0;
+}
+
+
+
+@keyframes scale {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  33% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+  66% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+.wordcloud p:nth-child(12) {
+  animation-name: scale;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-delay: 13s;
+  opacity: 0;
+}
+
+
+
+@keyframes scale {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  33% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+  66% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+.wordcloud p:nth-child(13) {
+  animation-name: scale;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-delay: 14s;
+  opacity: 0;
+}
+
+
+
+@keyframes scale {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  33% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+  66% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+.wordcloud p:nth-child(14) {
+  animation-name: scale;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-delay: 15s;
+  opacity: 0;
+}
+
+
+
+@keyframes scale {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  33% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+  66% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+.wordcloud p:nth-child(15) {
+  animation-name: scale;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-delay: 16s;
+  opacity: 0;
+}
+
+
+
+@keyframes scale {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  33% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+  66% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+.wordcloud p:nth-child(16) {
+  animation-name: scale;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-delay: 17s;
+  opacity: 0;
+}
+
+
+
+@keyframes scale {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  33% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+  66% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+.wordcloud p:nth-child(10) {
+  top: 25vh;
+  left: 5vw;
+}
+
+.wordcloud p:nth-child(2) {
+  top: 35vh;
+  left: 35vw;
+}
+
+.wordcloud p:nth-child(6) {
+  top: 35vh;
+  left: 55vw;
+}
+
+.wordcloud p:nth-child(12) {
+  top: 35vh;
+  left: 75vw;
+}
+
+.wordcloud p:nth-child(5) {
+  top: 65vh;
+  left: 5vw;
+}
+
+.wordcloud p:nth-child(3) {
+  top: 90vh;
+  left: 5vw;
+}
+
+.wordcloud p:nth-child(16) {
+  top: 75vh;
+  left: 20vw;
+}
+
+.wordcloud p:nth-child(8) {
+  top: 75vh;
+  left: 45vw;
+}
+
+.wordcloud p:nth-child(15) {
+  top: 90vh;
+  left: 65vw;
+}
+
+.wordcloud p:nth-child(1) {
+  top: 65vh;
+  left: 85vw;
+}
+
+.wordcloud p:nth-child(11) {
+  top: 110vh;
+  left: 5vw;
+}
+
+.wordcloud p:nth-child(4) {
+  left: 30vw;
+  top: 90vh;
+}
+
+.wordcloud p:nth-child(14) {
+  left: 80vw;
+  top: 90vh;
+}
+
+.wordcloud p:nth-child(9) {
+  left: 20vw;
+  top: 20vh;
+}
+
+.wordcloud p:nth-child(7) {
+  left: 15vw;
+  top: 10vh;
+}
+
+.wordcloud p:nth-child(13) {
+  left: 60vw;
+  top: 30vh;
+}
+
+.wordcloud p:nth-child(7) {
+  left: 90vw;
+  top: 20vh;
+}

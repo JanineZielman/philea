@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+$black: #141413;
+$white: #f7f1f0;
+
+body{
+  font-family: Montserrat;
+  margin: 0;
+  padding: 0;
+  background-color: $white;
+}
+
+p{
+  line-height: 1.4;
+  font-size: 18px;
+}
+
+a{
+  text-decoration: none;
+  font-weight: bold;
+  color: inherit;
+}
+
+.hero{
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  h1{
+    font-size: 64px;
+    text-transform: uppercase;
+    font-weight: 800;
+    max-width: 1100px;
+    text-align: center;
+    margin: auto;
+    line-height: 1;
+    z-index: 2;
+    margin-top: 48px;
+  }
+  p{
+    text-align: center;
+    font-size: 28px;
+    font-weight: 500;
+  }
+  img{
+    position: absolute;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain;
+    top: 100px;
+    mix-blend-mode: multiply;
+  }
+}
+
+.image-text{
+  width: 100vw;
+  height: fit-content;
+  padding: 48px 0;
+  margin-top: 100px;
+  p{
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  h2{
+    font-size: 36px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  background-color: $black;
+  color: $white;
+}
+
+.foldable{
+  max-width: 900px;
+  margin: auto;
+  padding: 48px 0;
+  h2{
+    font-size: 36px;
+  }
+  .fold-section{
+    margin-top: 48px;
+  }
+  .fold{
+    margin-bottom: 14px;
+  }
+  .fold-title{
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    cursor: pointer;
+    padding-bottom: 5px;
+    border-bottom: 1px solid $black;
+  }
+  .credits{
+    margin-top: 48px;
+    p{
+      font-size: 14px;
+    }
+  }
+}
