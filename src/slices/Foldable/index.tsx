@@ -1,6 +1,6 @@
 'use client'
 import { FC, useState } from "react";
-import { Content } from "@prismicio/client";
+import { Content, KeyTextField, RichTextField } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 export type FoldableProps = SliceComponentProps<Content.FoldableSlice>;
@@ -20,6 +20,7 @@ const Foldable: FC<FoldableProps> = ({ slice }) => {
           <FoldItem key={index} title={item.title} text={item.text} />
         ))}
       </div>
+
       <div className="credits">
         <PrismicRichText field={slice.primary.credits}/>
       </div>
@@ -28,8 +29,8 @@ const Foldable: FC<FoldableProps> = ({ slice }) => {
 };
 
 type FoldItemProps = {
-  title: string | null;
-  text: any;
+  title: KeyTextField;     // This is string | null
+  text: RichTextField;     // This is the correct type for rich text
 };
 
 const FoldItem: FC<FoldItemProps> = ({ title, text }) => {
@@ -52,6 +53,5 @@ const FoldItem: FC<FoldItemProps> = ({ title, text }) => {
     </div>
   );
 };
-
 
 export default Foldable;
