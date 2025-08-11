@@ -3,8 +3,10 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  deep_dive: dynamic(() => import("./DeepDives")),
   foldable: dynamic(() => import("./Foldable")),
   hero: dynamic(() => import("./Hero")),
   image_text: dynamic(() => import("./ImageText")),
+  key_topics: dynamic(() => import("./KeyTopics")),
   wordcloud: dynamic(() => import("./Wordcloud")),
 };

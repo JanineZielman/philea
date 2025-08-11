@@ -70,6 +70,8 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>["id"]];
 
 type PageDocumentDataSlicesSlice =
+  | KeyTopicsSlice
+  | DeepDiveSlice
   | FoldableSlice
   | HeroSlice
   | WordcloudSlice
@@ -146,6 +148,98 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 export type AllDocumentTypes = PageDocument;
+
+/**
+ * Item in *DeepDives → Default → Primary → DeepDive*
+ */
+export interface DeepDiveSliceDefaultPrimaryDeepdiveItem {
+  /**
+   * Title field in *DeepDives → Default → Primary → DeepDive*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: deep_dive.default.primary.deepdive[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Date field in *DeepDives → Default → Primary → DeepDive*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: deep_dive.default.primary.deepdive[].date
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  date: prismic.KeyTextField;
+
+  /**
+   * Text field in *DeepDives → Default → Primary → DeepDive*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: deep_dive.default.primary.deepdive[].text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Image field in *DeepDives → Default → Primary → DeepDive*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: deep_dive.default.primary.deepdive[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *DeepDives → Default → Primary*
+ */
+export interface DeepDiveSliceDefaultPrimary {
+  /**
+   * DeepDive field in *DeepDives → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: deep_dive.default.primary.deepdive[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  deepdive: prismic.GroupField<
+    Simplify<DeepDiveSliceDefaultPrimaryDeepdiveItem>
+  >;
+}
+
+/**
+ * Default variation for DeepDives Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type DeepDiveSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<DeepDiveSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *DeepDives*
+ */
+type DeepDiveSliceVariation = DeepDiveSliceDefault;
+
+/**
+ * DeepDives Shared Slice
+ *
+ * - **API ID**: `deep_dive`
+ * - **Description**: DeepDive
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type DeepDiveSlice = prismic.SharedSlice<
+  "deep_dive",
+  DeepDiveSliceVariation
+>;
 
 /**
  * Item in *Foldable → Default → Primary → Foldable*
@@ -387,6 +481,96 @@ export type ImageTextSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *KeyTopics → Default → Primary → Topics*
+ */
+export interface KeyTopicsSliceDefaultPrimaryTopicsItem {
+  /**
+   * Title field in *KeyTopics → Default → Primary → Topics*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: key_topics.default.primary.topics[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Text field in *KeyTopics → Default → Primary → Topics*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: key_topics.default.primary.topics[].text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *KeyTopics → Default → Primary*
+ */
+export interface KeyTopicsSliceDefaultPrimary {
+  /**
+   * Title field in *KeyTopics → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: key_topics.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Text field in *KeyTopics → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: key_topics.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Topics field in *KeyTopics → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: key_topics.default.primary.topics[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  topics: prismic.GroupField<Simplify<KeyTopicsSliceDefaultPrimaryTopicsItem>>;
+}
+
+/**
+ * Default variation for KeyTopics Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type KeyTopicsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<KeyTopicsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *KeyTopics*
+ */
+type KeyTopicsSliceVariation = KeyTopicsSliceDefault;
+
+/**
+ * KeyTopics Shared Slice
+ *
+ * - **API ID**: `key_topics`
+ * - **Description**: KeyTopics
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type KeyTopicsSlice = prismic.SharedSlice<
+  "key_topics",
+  KeyTopicsSliceVariation
+>;
+
+/**
  * Item in *Wordcloud → Default → Primary → Words*
  */
 export interface WordcloudSliceDefaultPrimaryWordsItem {
@@ -491,6 +675,11 @@ declare module "@prismicio/client" {
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      DeepDiveSlice,
+      DeepDiveSliceDefaultPrimaryDeepdiveItem,
+      DeepDiveSliceDefaultPrimary,
+      DeepDiveSliceVariation,
+      DeepDiveSliceDefault,
       FoldableSlice,
       FoldableSliceDefaultPrimaryFoldableItem,
       FoldableSliceDefaultPrimary,
@@ -504,6 +693,11 @@ declare module "@prismicio/client" {
       ImageTextSliceDefaultPrimary,
       ImageTextSliceVariation,
       ImageTextSliceDefault,
+      KeyTopicsSlice,
+      KeyTopicsSliceDefaultPrimaryTopicsItem,
+      KeyTopicsSliceDefaultPrimary,
+      KeyTopicsSliceVariation,
+      KeyTopicsSliceDefault,
       WordcloudSlice,
       WordcloudSliceDefaultPrimaryWordsItem,
       WordcloudSliceDefaultPrimary,

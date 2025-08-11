@@ -27,6 +27,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "key_topics": {
+              "type": "SharedSlice"
+            },
+            "deep_dive": {
+              "type": "SharedSlice"
+            },
             "foldable": {
               "type": "SharedSlice"
             },
