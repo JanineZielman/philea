@@ -147,7 +147,46 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-export type AllDocumentTypes = PageDocument;
+/**
+ * Content for Person documents
+ */
+interface PersonDocumentData {
+  /**
+   * Title field in *Person*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: person.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Text field in *Person*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: person.text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Person document from Prismic
+ *
+ * - **API ID**: `person`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PersonDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<PersonDocumentData>, "person", Lang>;
+
+export type AllDocumentTypes = PageDocument | PersonDocument;
 
 /**
  * Item in *DeepDives → Default → Primary → DeepDive*
@@ -192,6 +231,28 @@ export interface DeepDiveSliceDefaultPrimaryDeepdiveItem {
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * Key Takeaways field in *DeepDives → Default → Primary → DeepDive*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: deep_dive.default.primary.deepdive[].key_takeaways
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  key_takeaways: prismic.RichTextField;
+
+  /**
+   * Connected Person  field in *DeepDives → Default → Primary → DeepDive*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: deep_dive.default.primary.deepdive[].connected_person
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  connected_person: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
 }
 
 /**
@@ -674,6 +735,8 @@ declare module "@prismicio/client" {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      PersonDocument,
+      PersonDocumentData,
       AllDocumentTypes,
       DeepDiveSlice,
       DeepDiveSliceDefaultPrimaryDeepdiveItem,

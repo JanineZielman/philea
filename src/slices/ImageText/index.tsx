@@ -17,8 +17,10 @@ const ImageText: FC<ImageTextProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="image-text"
     >
-      <h2>{slice.primary.title}</h2>
-      <PrismicRichText field={slice.primary.text} />
+      <h2 data-aos="fade-up">{slice.primary.title}</h2>
+      <div data-aos="fade-up">
+        <PrismicRichText field={slice.primary.text} />
+      </div>
     </section>
   );
 };

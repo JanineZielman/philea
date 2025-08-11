@@ -17,12 +17,14 @@ const KeyTopics: FC<KeyTopicsProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="keytopics"
     >
-      <h2>{slice.primary.title}</h2>
-      <PrismicRichText field={slice.primary.text} />
+      <h2 data-aos="fade-up">{slice.primary.title}</h2>
+      <div data-aos="fade-up">
+        <PrismicRichText field={slice.primary.text} />
+      </div>
       <div className="topics">
         {slice.primary.topics.map((item, i) => (
           <div className="topic" key={`key${i}`}>
-            <h3>{item.title}</h3>
+            <p>{item.title}</p>
             {/* <PrismicRichText field={item.text} /> */}
           </div>
         ))}

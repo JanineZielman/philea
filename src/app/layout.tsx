@@ -2,6 +2,7 @@ import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "@/prismicio";
 import './global.scss'
 import './wordcloud.scss'
+import FadeInWrapper from "@/components/FadeInWrapper";
 
 export default function RootLayout({
   children,
@@ -10,7 +11,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <FadeInWrapper>{children}</FadeInWrapper>
+      </body>
       <PrismicPreview repositoryName={repositoryName} />
     </html>
   );

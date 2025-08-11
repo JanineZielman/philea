@@ -42,7 +42,6 @@
 							[
 								"image",
 								{
-									"__TYPE__": "ImageContent",
 									"origin": {
 										"id": "main",
 										"url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea",
@@ -61,7 +60,41 @@
 										"background": "transparent"
 									},
 									"alt": "putting",
+									"credits": null,
+									"__TYPE__": "ImageContent",
 									"thumbnails": {}
+								}
+							],
+							[
+								"key_takeaways",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Mollit reprehenderit eiusmod labore laboris commodo ipsum. Ex veniam officia elit proident incididunt anim qui ea anim eu cillum laborum. Voluptate esse mollit irure et dolor nulla reprehenderit ullamco ullamco exercitation velit."
+											}
+										}
+									]
+								}
+							],
+							[
+								"connected_person",
+								{
+									"__TYPE__": "RepeatableContent",
+									"type": "Link",
+									"value": [
+										{
+											"__TYPE__": "LinkContent",
+											"key": "1e342f91-ee5e-49c6-aaca-57db33c82629",
+											"value": {
+												"__TYPE__": "ExternalLink",
+												"url": "https://slicemachine.dev",
+												"text": "till"
+											}
+										}
+									]
 								}
 							]
 						]
