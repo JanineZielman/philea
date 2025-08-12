@@ -28,8 +28,10 @@ const KeyTopics: FC<KeyTopicsProps> = ({ slice }) => {
       <div className="topics">
         {slice.primary.topics.map((item, i) => (
           <div
-            className={`topic cursor-pointer ${i % 2 === 1 ? "alt-color" : ""}`} // alternating topic colors
+            className={`topic cursor-pointer ${i % 2 === 1 ? "alt-color" : ""}`}
             key={`key${i}`}
+            data-aos="fade-up"
+            data-aos-delay={i * 100} // 100ms delay per item
             onClick={() => setPopupData({ text: item.text, index: i })}
           >
             <p>{item.title}</p>

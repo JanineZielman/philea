@@ -32,6 +32,8 @@ const DeepDive: FC<DeepDiveProps> = ({ slice }) => {
           <div
             className="deepdive"
             key={`deepdive${i}`}
+            data-aos="fade-up"
+            data-aos-delay={i * 100} // Staggered delay for fade-up
             onClick={() => openDeepDive(item)}
             style={{ cursor: "pointer" }}
           >
