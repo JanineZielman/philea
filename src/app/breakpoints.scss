@@ -1,0 +1,42 @@
+@media only screen and (max-width: 900px) {
+  body,html{
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  .hero{
+    h1{
+      font-size: 42px;
+    }
+    p{
+      font-size: 16px;
+    }
+  }
+  p{
+    font-size: 16px;
+  }
+  h2{
+    font-size: 24px;
+  }
+  h3{
+    font-size: 20px;
+  }
+  .image-text, .foldable, .keytopics{
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .foldable .fold-title{
+    font-size: 20px;
+  }
+  ul, ol{
+    padding-inline-start: 24px;
+  }
+  ul li, ol li{
+    font-size: 16px;
+  }
+  .wordcloud p{
+    font-size: 16px;
+    width: 150px;
+    height: 150px;
+    padding: 5px;
+  }
+}
