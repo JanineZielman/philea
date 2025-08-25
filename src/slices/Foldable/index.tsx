@@ -23,7 +23,7 @@ const Foldable: FC<FoldableProps> = ({ slice }) => {
               key={index}
               title={item.title}
               text={item.text}
-              delay={index * 500} // 👈 pass delay instead of using key
+              delay={index * 100} // 👈 pass delay instead of using key
             />
           ))}
         </div>
