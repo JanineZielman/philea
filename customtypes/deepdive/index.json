@@ -19,13 +19,6 @@
           "placeholder": ""
         }
       },
-      "subtitle": {
-        "type": "Text",
-        "config": {
-          "label": "Subtitle",
-          "placeholder": ""
-        }
-      },
       "date": {
         "type": "Text",
         "config": {
