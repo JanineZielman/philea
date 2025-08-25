@@ -58,6 +58,13 @@ h3{
     text-align: center;
     font-size: 28px;
     font-weight: 500;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: -24px;
+    width: fit-content;
+    padding: 0 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
   img{
     position: absolute;
@@ -67,6 +74,91 @@ h3{
     object-fit: contain;
     top: 100px;
     mix-blend-mode: multiply;
+  }
+}
+
+.quote {
+  p{
+    font-size: 30px;
+    font-weight: 600;
+  }
+  em{
+    font-style: normal;
+  }
+  strong{
+    display: block;
+    margin-top: 14px;
+    font-size: 18px;
+    color: $pink;
+    text-align: right;
+    font-weight: 500;
+  }
+}
+
+.deepdive{
+  .hero{
+    h1{
+      margin-top: 24px;
+    }
+    img{
+      height: calc(100vh - 100px);
+    }
+    p{
+      margin-top: 14px;
+    }
+    img{
+      top: 150px;
+    }
+  }
+  .content{
+    margin-top: 48px;
+  }
+  .bio{
+    background: white;
+    background-image: linear-gradient(#f2f2f2 0.1em, transparent 0.1em), linear-gradient(90deg, #f2f2f2 0.1em, transparent 0.1em);
+    background-size: 3em 3em;
+    padding: 48px 0;
+    .bio-wrapper{
+      max-width: 800px;
+      margin: auto;
+      background-color: white;
+      box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+      padding: 14px 36px;
+      border-radius: 14px;
+    }
+    a{
+      // text-decoration: underline;
+       border-bottom: 1px solid black;
+    }
+  }
+  .wrapper{
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+  .keys {
+    padding-top: 48px;
+      background: white;
+  background-image: linear-gradient(#f2f2f2 0.1em, transparent 0.1em), linear-gradient(90deg, #f2f2f2 0.1em, transparent 0.1em);
+  background-size: 3em 3em;
+  h2{
+    text-align: center;
+  }
+    ul{
+      display: flex;
+      overflow-x: scroll;
+      list-style-type: none;
+      padding-inline-start: 0;
+      li{
+        border: 1px solid $black;
+        border-radius: 14px;
+        padding: 14px;
+        height: 100%;
+        min-width: 400px;
+        margin-right: 14px;
+        margin-left: 14px;
+        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+      }
+    }
   }
 }
 
@@ -185,15 +277,16 @@ h3{
   }
 }
 
+.wrapper{
+  max-width: 900px;
+  margin: auto;
+}
+
 .foldable{
   padding: 48px 0;
   background: white;
   background-image: linear-gradient(#f2f2f2 0.1em, transparent 0.1em), linear-gradient(90deg, #f2f2f2 0.1em, transparent 0.1em);
   background-size: 3em 3em;
-  .wrapper{
-    max-width: 900px;
-    margin: auto;
-  }
   .fold-section{
     margin-top: 48px;
   }

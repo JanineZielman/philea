@@ -27,6 +27,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "deepdives": {
+              "type": "SharedSlice"
+            },
             "key_topics": {
               "type": "SharedSlice"
             },

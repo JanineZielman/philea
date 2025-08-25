@@ -1,0 +1,51 @@
+{
+  "id": "deepdives",
+  "type": "SharedSlice",
+  "name": "Deepdives",
+  "description": "Deepdives",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "deepdives": {
+          "type": "Group",
+          "config": {
+            "label": "Deepdives",
+            "repeat": true,
+            "fields": {
+              "deepdive": {
+                "type": "Link",
+                "config": {
+                  "label": "Deepdive",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    {
+                      "id": "deepdive",
+                      "fields": [
+                        "title",
+                        "subtitle",
+                        "date",
+                        "image",
+                        "text",
+                        "key_takeaways",
+                        "quote",
+                        "bio"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

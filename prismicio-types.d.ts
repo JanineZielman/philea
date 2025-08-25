@@ -85,6 +85,17 @@ interface DeepdiveDocumentData {
   title: prismic.KeyTextField;
 
   /**
+   * Subtitle field in *Deepdive*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: deepdive.subtitle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
    * Date field in *Deepdive*
    *
    * - **Field Type**: Text
@@ -107,19 +118,6 @@ interface DeepdiveDocumentData {
   image: prismic.ImageField<never>;
 
   /**
-   * Connected Person  field in *Deepdive*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: deepdive.connected_person
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
-   */
-  connected_person: ContentRelationshipFieldWithData<
-    [{ id: "person"; fields: ["title", "text"] }]
-  >;
-
-  /**
    * Text field in *Deepdive*
    *
    * - **Field Type**: Rich Text
@@ -140,6 +138,28 @@ interface DeepdiveDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   key_takeaways: prismic.RichTextField;
+
+  /**
+   * Quote field in *Deepdive*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: deepdive.quote
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  quote: prismic.RichTextField;
+
+  /**
+   * Bio field in *Deepdive*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: deepdive.bio
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  bio: prismic.RichTextField;
 }
 
 /**
@@ -159,6 +179,7 @@ export type DeepdiveDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | DeepdivesSlice
   | KeyTopicsSlice
   | DeepDiveSlice
   | FoldableSlice
@@ -236,46 +257,7 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-/**
- * Content for Person documents
- */
-interface PersonDocumentData {
-  /**
-   * Title field in *Person*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: person.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * Text field in *Person*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: person.text
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  text: prismic.RichTextField;
-}
-
-/**
- * Person document from Prismic
- *
- * - **API ID**: `person`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/content-modeling
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type PersonDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<Simplify<PersonDocumentData>, "person", Lang>;
-
-export type AllDocumentTypes = DeepdiveDocument | PageDocument | PersonDocument;
+export type AllDocumentTypes = DeepdiveDocument | PageDocument;
 
 /**
  * Item in *Carousel → Default → Primary → Carousel*
@@ -347,6 +329,84 @@ type DeepDiveSliceVariation = DeepDiveSliceDefault;
 export type DeepDiveSlice = prismic.SharedSlice<
   "deep_dive",
   DeepDiveSliceVariation
+>;
+
+/**
+ * Item in *Deepdives → Default → Primary → Deepdives*
+ */
+export interface DeepdivesSliceDefaultPrimaryDeepdivesItem {
+  /**
+   * Deepdive field in *Deepdives → Default → Primary → Deepdives*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: deepdives.default.primary.deepdives[].deepdive
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  deepdive: ContentRelationshipFieldWithData<
+    [
+      {
+        id: "deepdive";
+        fields: [
+          "title",
+          "subtitle",
+          "date",
+          "image",
+          "text",
+          "key_takeaways",
+          "quote",
+          "bio",
+        ];
+      },
+    ]
+  >;
+}
+
+/**
+ * Primary content in *Deepdives → Default → Primary*
+ */
+export interface DeepdivesSliceDefaultPrimary {
+  /**
+   * Deepdives field in *Deepdives → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: deepdives.default.primary.deepdives[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  deepdives: prismic.GroupField<
+    Simplify<DeepdivesSliceDefaultPrimaryDeepdivesItem>
+  >;
+}
+
+/**
+ * Default variation for Deepdives Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type DeepdivesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<DeepdivesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Deepdives*
+ */
+type DeepdivesSliceVariation = DeepdivesSliceDefault;
+
+/**
+ * Deepdives Shared Slice
+ *
+ * - **API ID**: `deepdives`
+ * - **Description**: Deepdives
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type DeepdivesSlice = prismic.SharedSlice<
+  "deepdives",
+  DeepdivesSliceVariation
 >;
 
 /**
@@ -784,14 +844,17 @@ declare module "@prismicio/client" {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
-      PersonDocument,
-      PersonDocumentData,
       AllDocumentTypes,
       DeepDiveSlice,
       DeepDiveSliceDefaultPrimaryCarouselItem,
       DeepDiveSliceDefaultPrimary,
       DeepDiveSliceVariation,
       DeepDiveSliceDefault,
+      DeepdivesSlice,
+      DeepdivesSliceDefaultPrimaryDeepdivesItem,
+      DeepdivesSliceDefaultPrimary,
+      DeepdivesSliceVariation,
+      DeepdivesSliceDefault,
       FoldableSlice,
       FoldableSliceDefaultPrimaryFoldableItem,
       FoldableSliceDefaultPrimary,
