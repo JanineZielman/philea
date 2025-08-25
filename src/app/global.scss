@@ -31,7 +31,11 @@ a{
 h2{
   font-size: 48px;
   font-weight: bold;
+  strong{
+    font-weight: bold;
+  }
 }
+
 
 h3{
   font-size: 24px;
@@ -74,6 +78,7 @@ h3{
     height: 100vh;
     object-fit: contain;
     mix-blend-mode: multiply;
+    top: 100px;
   }
 }
 
@@ -118,11 +123,10 @@ h3{
       color: $black;
       cursor: pointer;
       font-weight: bold;
-      transition: background-color 0.3s;
+      transition: all 0.4s ease;
 
       &:hover {
-        background-color: $black;
-        color: white;
+        transform: scale(1.2);
       }
     }
   }
@@ -189,6 +193,11 @@ h3{
       overflow-x: scroll;
       list-style-type: none;
       padding-inline-start: 0;
+      &:nth-of-type(2n) {
+        li{
+          animation-direction: reverse;
+        }
+      }
       li{
         border: 1px solid $black;
         border-radius: 14px;
@@ -199,8 +208,21 @@ h3{
         margin-left: 14px;
         box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
         background-color: white;
+        animation: scrollLeft 30s linear infinite; // infinite scroll
       }
     }
+  }
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  99% {
+    transform: translateX(-300%); // scroll left half of content width (adjust as needed)
+  }
+  100% {
+    transform: translateX(0%); // scroll left half of content width (adjust as needed)
   }
 }
 
@@ -404,6 +426,26 @@ h3{
   span{
     color: $pink;
   }
+  &.false{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .organization{
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      border: none;
+      p,li{
+        font-size: 18px;
+      }
+      h3{
+        font-size: 36px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid $black;
+      }
+    }
+  }
   .organization{
     width: fit-content;
     max-width: 100%;
@@ -432,6 +474,24 @@ h3{
     }
     p, li{
       font-size: 14px;
+    }
+    h3{
+      max-width: 80%;
+      &:after{
+        content: "i";
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        background-color: $yellow;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+      }
     }
   }
 }

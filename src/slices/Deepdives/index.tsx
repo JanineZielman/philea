@@ -63,13 +63,13 @@ const Deepdives: FC<DeepdivesProps> = ({ slice }) => {
           <div id={`deepdive-${i}`} className="deepdive" key={i}>
             <div className="hero">
               <h1 data-aos="fade-up">{data.title}</h1>
-              <p>{data.subtitle}</p>
+              <p data-aos="fade-up">{data.subtitle}</p>
               <PrismicNextImage data-aos="zoom-in" field={data.image} />
             </div>
 
             <div className="content">
               {data.quote && <div className="wrapper quote" data-aos="fade-up"><PrismicRichText field={data.quote} /></div>}
-              {data.key_takeaways && <div className="keys" data-aos="zoom-in-up"><h2>Key Takeaways</h2><PrismicRichText field={data.key_takeaways} /></div>}
+              {data.key_takeaways && <div className="keys"><h2>Key Takeaways</h2><PrismicRichText field={data.key_takeaways} /></div>}
               {data.text && <div className="wrapper text-content" data-aos="fade-up"><PrismicRichText field={data.text} /></div>}
               {data.bio && <div className="bio">
                 <div className="bio-wrapper" data-aos="zoom-in-up">

@@ -21,7 +21,6 @@ const DeepDive: FC<DeepDiveProps> = ({ slice }) => {
     setSelectedDeepDive(null);
   };
 
-  console.log(slice)
 
   return (
     <section
@@ -29,8 +28,10 @@ const DeepDive: FC<DeepDiveProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="organizations-section"
     >
-      <h2>Organizations</h2>
-      <div className="organizations">
+      {slice.primary.carousel.length > 1 &&
+        <h2>Organizations</h2>
+      }
+      <div className={`organizations ${slice.primary.carousel.length > 1}`}>
         {slice.primary.carousel.map((item, i) => (
           <div
             className="organization"

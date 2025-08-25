@@ -85,6 +85,17 @@ interface DeepdiveDocumentData {
   title: prismic.KeyTextField;
 
   /**
+   * Subtitle field in *Deepdive*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: deepdive.subtitle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
    * Date field in *Deepdive*
    *
    * - **Field Type**: Text

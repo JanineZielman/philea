@@ -19,7 +19,12 @@ const Foldable: FC<FoldableProps> = ({ slice }) => {
         </div>
         <div className="fold-section">
           {slice.primary.foldable.map((item, index) => (
-            <FoldItem key={index} title={item.title} text={item.text} />
+            <FoldItem
+              key={index}
+              title={item.title}
+              text={item.text}
+              delay={index * 500} // 👈 pass delay instead of using key
+            />
           ))}
         </div>
 
@@ -32,16 +37,18 @@ const Foldable: FC<FoldableProps> = ({ slice }) => {
 };
 
 type FoldItemProps = {
-  title: KeyTextField;     // This is string | null
-  text: RichTextField;     // This is the correct type for rich text
+  title: KeyTextField;     // string | null
+  text: RichTextField;     // rich text
+  delay?: number;          // 👈 new prop
 };
 
-const FoldItem: FC<FoldItemProps> = ({ title, text }) => {
+const FoldItem: FC<FoldItemProps> = ({ title, text, delay = 0 }) => {
   return (
     <div className="fold">
       <div
         className="fold-title"
-        data-aos="fade-up"
+        data-aos="fade-left"
+        data-aos-delay={delay} // 👈 use delay instead of key
       >
         <span>{title ?? "Untitled"}</span>
       </div>
