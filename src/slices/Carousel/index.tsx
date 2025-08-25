@@ -2,12 +2,13 @@
 import { FC, useState } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { isFilled } from "@prismicio/client";
+import { RTTextNode } from "@prismicio/client";
 
 export type DeepDiveProps = SliceComponentProps<Content.DeepDiveSlice>;
 
 // Type for each deepdive item
-type DeepDiveItem = Content.DeepDiveSliceDefaultPrimaryDeepdiveItem;
+type DeepDiveItem = Content.DeepDiveSliceDefaultPrimaryCarouselItem;
 
 const DeepDive: FC<DeepDiveProps> = ({ slice }) => {
   const [selectedDeepDive, setSelectedDeepDive] = useState<DeepDiveItem | null>(null);
@@ -20,34 +21,29 @@ const DeepDive: FC<DeepDiveProps> = ({ slice }) => {
     setSelectedDeepDive(null);
   };
 
+  console.log(slice)
+
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="deepdives-section"
+      className="organizations-section"
     >
-      <h2>Deepdives</h2>
-      <div className="deepdives">
-        {slice.primary.deepdive.map((item, i) => (
+      <h2>Organizations</h2>
+      <div className="organizations">
+        {slice.primary.carousel.map((item, i) => (
           <div
-            className="deepdive"
-            key={`deepdive${i}`}
+            className="organization"
+            key={`organization${i}`}
             data-aos="fade-up"
             data-aos-delay={i * 100} // Staggered delay for fade-up
             onClick={() => openDeepDive(item)}
             style={{ cursor: "pointer" }}
           >
-            <span>{item.date}</span>
             <h3>{item.title}</h3>
-            <div className="person-link">
-              {item.connected_person.map((link, linkIndex) => (
-                <PrismicNextLink
-                  key={`link${linkIndex}`}
-                  field={link}
-                />
-              ))}
-            </div>
-            <PrismicNextImage field={item.image} />
+            {isFilled.richText(item.text)  && (
+              <p>{(item.text[0] as RTTextNode).text}</p>
+            )}
           </div>
         ))}
       </div>
@@ -61,20 +57,9 @@ const DeepDive: FC<DeepDiveProps> = ({ slice }) => {
             <button className="modal-close" onClick={closeDeepDive}>
               ✕
             </button>
-            <span>{selectedDeepDive.date}</span>
             <h3>{selectedDeepDive.title}</h3>
-            <div className="person-link">
-              {selectedDeepDive.connected_person.map((personLink, i) => (
-                <PrismicNextLink
-                  key={`link${i}`}
-                  field={personLink}
-                />
-              ))}
-            </div>
-            <PrismicNextImage field={selectedDeepDive.image} />
             <div className="modal-body">
               <PrismicRichText field={selectedDeepDive.text} />
-              <PrismicRichText field={selectedDeepDive.key_takeaways} />
             </div>
           </div>
         </div>

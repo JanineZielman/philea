@@ -1,5 +1,5 @@
 'use client'
-import { FC, useState } from "react";
+import { FC } from "react";
 import { Content, KeyTextField, RichTextField } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
@@ -12,18 +12,20 @@ const Foldable: FC<FoldableProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="foldable"
     >
-      <h2 data-aos="fade-up">{slice.primary.title}</h2>
-      <div data-aos="fade-up">
-        <PrismicRichText field={slice.primary.text} />
-      </div>
-      <div className="fold-section">
-        {slice.primary.foldable.map((item, index) => (
-          <FoldItem key={index} title={item.title} text={item.text} />
-        ))}
-      </div>
+      <div className="wrapper">
+        <h2 data-aos="fade-up">{slice.primary.title}</h2>
+        <div data-aos="fade-up">
+          <PrismicRichText field={slice.primary.text} />
+        </div>
+        <div className="fold-section">
+          {slice.primary.foldable.map((item, index) => (
+            <FoldItem key={index} title={item.title} text={item.text} />
+          ))}
+        </div>
 
-      <div className="credits" data-aos="fade-up">
-        <PrismicRichText field={slice.primary.credits}/>
+        <div className="credits" data-aos="fade-up">
+          <PrismicRichText field={slice.primary.credits}/>
+        </div>
       </div>
     </section>
   );
@@ -35,23 +37,17 @@ type FoldItemProps = {
 };
 
 const FoldItem: FC<FoldItemProps> = ({ title, text }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <div className="fold">
       <div
-        onClick={() => setIsOpen((prev) => !prev)}
         className="fold-title"
         data-aos="fade-up"
       >
         <span>{title ?? "Untitled"}</span>
-        <span>{isOpen ? "−" : "+"}</span>
       </div>
-      {isOpen && (
-        <div className="fold-text">
-          <PrismicRichText field={text} />
-        </div>
-      )}
+      <div className="fold-text">
+        <PrismicRichText field={text} />
+      </div>
     </div>
   );
 };

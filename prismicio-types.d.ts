@@ -69,6 +69,95 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
+/**
+ * Content for Deepdive documents
+ */
+interface DeepdiveDocumentData {
+  /**
+   * Title field in *Deepdive*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: deepdive.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Date field in *Deepdive*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: deepdive.date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  date: prismic.KeyTextField;
+
+  /**
+   * Image field in *Deepdive*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: deepdive.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Connected Person  field in *Deepdive*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: deepdive.connected_person
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  connected_person: ContentRelationshipFieldWithData<
+    [{ id: "person"; fields: ["title", "text"] }]
+  >;
+
+  /**
+   * Text field in *Deepdive*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: deepdive.text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Key Takeaways field in *Deepdive*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: deepdive.key_takeaways
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  key_takeaways: prismic.RichTextField;
+}
+
+/**
+ * Deepdive document from Prismic
+ *
+ * - **API ID**: `deepdive`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type DeepdiveDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<DeepdiveDocumentData>,
+    "deepdive",
+    Lang
+  >;
+
 type PageDocumentDataSlicesSlice =
   | KeyTopicsSlice
   | DeepDiveSlice
@@ -186,94 +275,52 @@ interface PersonDocumentData {
 export type PersonDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PersonDocumentData>, "person", Lang>;
 
-export type AllDocumentTypes = PageDocument | PersonDocument;
+export type AllDocumentTypes = DeepdiveDocument | PageDocument | PersonDocument;
 
 /**
- * Item in *DeepDives → Default → Primary → DeepDive*
+ * Item in *Carousel → Default → Primary → Carousel*
  */
-export interface DeepDiveSliceDefaultPrimaryDeepdiveItem {
+export interface DeepDiveSliceDefaultPrimaryCarouselItem {
   /**
-   * Title field in *DeepDives → Default → Primary → DeepDive*
+   * Title field in *Carousel → Default → Primary → Carousel*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: deep_dive.default.primary.deepdive[].title
+   * - **API ID Path**: deep_dive.default.primary.carousel[].title
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   title: prismic.KeyTextField;
 
   /**
-   * Date field in *DeepDives → Default → Primary → DeepDive*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: deep_dive.default.primary.deepdive[].date
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  date: prismic.KeyTextField;
-
-  /**
-   * Text field in *DeepDives → Default → Primary → DeepDive*
+   * Text field in *Carousel → Default → Primary → Carousel*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: deep_dive.default.primary.deepdive[].text
+   * - **API ID Path**: deep_dive.default.primary.carousel[].text
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   text: prismic.RichTextField;
-
-  /**
-   * Image field in *DeepDives → Default → Primary → DeepDive*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: deep_dive.default.primary.deepdive[].image
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * Key Takeaways field in *DeepDives → Default → Primary → DeepDive*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: deep_dive.default.primary.deepdive[].key_takeaways
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  key_takeaways: prismic.RichTextField;
-
-  /**
-   * Connected Person  field in *DeepDives → Default → Primary → DeepDive*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: deep_dive.default.primary.deepdive[].connected_person
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  connected_person: prismic.Repeatable<
-    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
-  >;
 }
 
 /**
- * Primary content in *DeepDives → Default → Primary*
+ * Primary content in *Carousel → Default → Primary*
  */
 export interface DeepDiveSliceDefaultPrimary {
   /**
-   * DeepDive field in *DeepDives → Default → Primary*
+   * Carousel field in *Carousel → Default → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: deep_dive.default.primary.deepdive[]
+   * - **API ID Path**: deep_dive.default.primary.carousel[]
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  deepdive: prismic.GroupField<
-    Simplify<DeepDiveSliceDefaultPrimaryDeepdiveItem>
+  carousel: prismic.GroupField<
+    Simplify<DeepDiveSliceDefaultPrimaryCarouselItem>
   >;
 }
 
 /**
- * Default variation for DeepDives Slice
+ * Default variation for Carousel Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -286,12 +333,12 @@ export type DeepDiveSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Slice variation for *DeepDives*
+ * Slice variation for *Carousel*
  */
 type DeepDiveSliceVariation = DeepDiveSliceDefault;
 
 /**
- * DeepDives Shared Slice
+ * Carousel Shared Slice
  *
  * - **API ID**: `deep_dive`
  * - **Description**: DeepDive
@@ -732,6 +779,8 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      DeepdiveDocument,
+      DeepdiveDocumentData,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
@@ -739,7 +788,7 @@ declare module "@prismicio/client" {
       PersonDocumentData,
       AllDocumentTypes,
       DeepDiveSlice,
-      DeepDiveSliceDefaultPrimaryDeepdiveItem,
+      DeepDiveSliceDefaultPrimaryCarouselItem,
       DeepDiveSliceDefaultPrimary,
       DeepDiveSliceVariation,
       DeepDiveSliceDefault,

@@ -11,9 +11,6 @@
     width: 100%;
     max-width: 900px;
   }
-  h2{
-    font-size: 36px;
-  }
 }
 
 .wordcloud{
@@ -41,11 +38,14 @@
   transform: scale(0) translate(-50%, -50%);
   text-align: center;
   z-index: -1;
-  &:nth-child(2n){
+  &:nth-child(3n){
     background-color: #f23652;
   }
-  &:nth-child(2n+1){
-    background-color: #fff;
+  &:nth-child(3n+1){
+    background-color: #ffd766;
+  }
+  &:nth-child(3n+2){
+    background-color: #acbc4b;
   }
 }
 
