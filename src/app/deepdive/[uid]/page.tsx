@@ -2,8 +2,8 @@
 import { notFound } from "next/navigation";
 
 import { createClient } from "@/prismicio";
-import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
+import BackLink from "@/components/BackLink"; // 👈 import client component
 
 type Params = { uid: string };
 
@@ -12,31 +12,15 @@ export default async function Page({ params }: { params: Promise<Params> }) {
   const client = createClient();
   const page = await client.getByUID("deepdive", uid).catch(() => notFound());
 
-  // <SliceZone> renders the page's slices.
   return (
     <div className="deepdive">
-      <div className="hero">
-       <h1>{page.data.title}</h1>
-       <p>{page.data.subtitle}</p>
-        <PrismicNextImage field={page.data.image} />
-      </div>
-      <div className="content">
-        <div className="wrapper quote">
-          <PrismicRichText field={page.data.quote} />
-        </div>
-         <div className="keys">
-          <h2>Key Takeaways</h2>
-          <PrismicRichText field={page.data.key_takeaways} />
-        </div>
+      <div className="circle" id="circle"></div>
+      <div className="full-bio">
         <div className="wrapper">
-          <PrismicRichText field={page.data.text} />
-        </div>
-        <div className="bio">
-          <div className="bio-wrapper">
-            <PrismicRichText field={page.data.bio} />
-          </div>
+          <PrismicRichText field={page.data.bio} />
         </div>
       </div>
+      <BackLink className="back" />
     </div>
   );
 }

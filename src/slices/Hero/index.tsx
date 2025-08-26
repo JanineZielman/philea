@@ -18,6 +18,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="hero"
     >
+      <div className="circle" id="circle"></div>
       <h1>{slice.primary.title}</h1>
       <PrismicRichText field={slice.primary.text} />
       <PrismicNextImage field={slice.primary.image} />

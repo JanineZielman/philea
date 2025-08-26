@@ -3,6 +3,7 @@ import { FC, useEffect, useRef, useState } from "react";
 import { Content, isFilled } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
+import Link from "next/link";
 
 export type DeepdivesProps = SliceComponentProps<Content.DeepdivesSlice>;
 
@@ -55,9 +56,12 @@ const Deepdives: FC<DeepdivesProps> = ({ slice }) => {
       {slice.primary.deepdives.map((page, i) => {
         const deepdive = page.deepdive;
         if (!isFilled.contentRelationship(deepdive)) return null;
-        const { data } = deepdive as typeof deepdive & {
+        const { data, uid } = deepdive as typeof deepdive & {
           data: NonNullable<typeof deepdive.data>;
         };
+
+        console.log(page.deepdive)
+
 
         return (
           <div id={`deepdive-${i}`} className="deepdive" key={i}>
@@ -74,7 +78,9 @@ const Deepdives: FC<DeepdivesProps> = ({ slice }) => {
                 {data.text && <div className="text-content" data-aos="fade-up"><PrismicRichText field={data.text} /></div>}
                 {data.bio && <div className="bio">
                   <div className="bio-wrapper" data-aos="zoom-in-up">
-                    <PrismicRichText field={data.bio} />
+                    <Link href={`/deepdive/${uid}`} scroll={false}>
+                      <PrismicRichText field={data.bio} />
+                    </Link>
                   </div>
                 </div>}
               </div>
