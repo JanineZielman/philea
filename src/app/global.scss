@@ -141,10 +141,10 @@ h3{
       border-radius: 20px;
     }
     img{
-      height: calc(100vh - 100px);
+      height: calc(100vh - 150px);
       z-index: 9;
       position: absolute;
-      top: 150px;
+      top: 170px;
     }
     p{
       margin-top: 14px;
@@ -447,7 +447,8 @@ h3{
   background: white;
   background-image: linear-gradient(#f2f2f2 0.1em, transparent 0.1em), linear-gradient(90deg, #f2f2f2 0.1em, transparent 0.1em);
   background-size: 3em 3em;
-  // height: 100vh;
+  // height: fit-content;
+  padding-bottom: 75px;
   h2{
     text-align: center;
     margin: 0;
@@ -472,13 +473,13 @@ h3{
     justify-content: center;
     align-items: center;
     height: 70vh;
+    overflow-x: hidden;
     .organization{
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
       border: none;
       background-color: $pink;
-      color: white;
       text-decoration: none;
       font-weight: inherit;
       p{
@@ -503,9 +504,8 @@ h3{
     min-width: 400px;
     margin: 24px;
     margin-top: 48px;
-    margin-bottom: 100px;
+    // margin-bottom: 100px;
     background-color: white;
-    // display: flex;
     align-items: center;
     position: relative;
     border: 1px solid $black;
@@ -676,4 +676,11 @@ ul, ol{
   &:hover{
     transform: scale(1.2);
   }
+}
+
+footer{
+  background-color: $pink;
+  padding: 48px 14px;
+  font-size: 14px;
+  text-align: center;
 }

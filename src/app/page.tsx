@@ -14,6 +14,9 @@ export default async function Home() {
   return (
     <div className="home">
       <SliceZone slices={home.data.slices} components={components} />
+          <footer>
+      The peer-learning programme was co-designed between Philea and New Silk Roads, a creative agency operating from Cairo, Tunis, and Amsterdam.
+    </footer>
     </div>
   )
 }
