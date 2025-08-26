@@ -16,7 +16,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
     <div className="deepdive">
       <div className="circle" id="circle"></div>
       <div className="full-bio">
-        <div className="wrapper">
+        <div className="wrapper" data-aos="fade-up" data-aos-delay="500">
           <PrismicRichText field={page.data.bio} />
         </div>
       </div>

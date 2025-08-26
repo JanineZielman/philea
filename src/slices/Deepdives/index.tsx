@@ -60,9 +60,6 @@ const Deepdives: FC<DeepdivesProps> = ({ slice }) => {
           data: NonNullable<typeof deepdive.data>;
         };
 
-        console.log(page.deepdive)
-
-
         return (
           <div id={`deepdive-${i}`} className="deepdive" key={i}>
             <div className="hero">
@@ -77,11 +74,11 @@ const Deepdives: FC<DeepdivesProps> = ({ slice }) => {
               <div className="flex-wrap">
                 {data.text && <div className="text-content" data-aos="fade-up"><PrismicRichText field={data.text} /></div>}
                 {data.bio && <div className="bio">
+                  <Link href={`/deepdive/${uid}`} scroll={true}>
                   <div className="bio-wrapper" data-aos="zoom-in-up">
-                    <Link href={`/deepdive/${uid}`} scroll={false}>
-                      <PrismicRichText field={data.bio} />
-                    </Link>
+                    <PrismicRichText field={data.bio} />
                   </div>
+                  </Link>
                 </div>}
               </div>
             </div>

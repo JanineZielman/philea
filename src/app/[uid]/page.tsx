@@ -15,7 +15,12 @@ export default async function Page({ params }: { params: Promise<Params> }) {
   const page = await client.getByUID("page", uid).catch(() => notFound());
 
   // <SliceZone> renders the page's slices.
-  return <SliceZone slices={page.data.slices} components={components} />;
+  return (
+    <>
+    <div className="circle" id="circle"></div>
+    <SliceZone slices={page.data.slices} components={components} />
+    </>
+  );
 }
 
 export async function generateMetadata({

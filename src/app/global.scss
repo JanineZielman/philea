@@ -134,6 +134,7 @@ h3{
 
 .deepdive{
   .hero{
+    margin-top: 48px;
     h1{
       margin-top: 24px;
       background-color: white;
@@ -165,6 +166,10 @@ h3{
   }
   .bio{
     max-width: 45%;
+    a{
+      text-decoration: none;
+      font-weight: inherit;
+    }
     .bio-wrapper{
       // max-width: 800px;
       margin: auto;
@@ -172,9 +177,6 @@ h3{
       box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
       padding: 14px 60px 40px 24px;
       border-radius: 14px;
-      a{
-        text-decoration: none;
-      }
       h2 a, p a{
         text-decoration: underline;
       }
@@ -193,9 +195,6 @@ h3{
         transform: translateY(-50%) rotate(-90deg);
         transition: all 0.4s ease;
       }
-    }
-    a{
-      text-decoration: underline;
     }
     h2{
       font-size: 28px;
@@ -267,7 +266,9 @@ h3{
   width: 100vw;
   height: fit-content;
   padding: 48px 0;
-  margin-top: 100px;
+  background: white;
+  background-image: linear-gradient(#f2f2f2 0.1em, transparent 0.1em), linear-gradient(90deg, #f2f2f2 0.1em, transparent 0.1em);
+  background-size: 3em 3em;
   p{
     max-width: 900px;
     margin-left: auto;
@@ -278,8 +279,6 @@ h3{
     margin-left: auto;
     margin-right: auto;
   }
-  background-color: $black;
-  color: $white;
 }
 
 .keytopics{
@@ -480,6 +479,8 @@ h3{
       border: none;
       background-color: $pink;
       color: white;
+      text-decoration: none;
+      font-weight: inherit;
       p{
         font-size: 18px;
         display: -webkit-box; /* Required for -webkit-line-clamp */
