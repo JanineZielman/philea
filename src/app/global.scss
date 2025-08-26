@@ -115,8 +115,8 @@ h3{
       z-index: 1000;
     }
     .deepdives-menu-button {
-      width: 2rem;
-      height: 2rem;
+      width: 3rem;
+      height: 3rem;
       border-radius: 50%;
       border: none;
       background-color: $yellow;
@@ -124,6 +124,7 @@ h3{
       cursor: pointer;
       font-weight: bold;
       transition: all 0.4s ease;
+      font-size: 20px;
 
       &:hover {
         transform: scale(1.2);
@@ -151,25 +152,55 @@ h3{
   .content{
     margin-top: 48px;
   }
+  .flex-wrap{
+    display: flex;
+    background: $pink;
+    padding: 48px 24px;
+    .text-content{
+      color: white;
+      width: 45%;
+      margin-right: 4%;
+      font-weight: 500;
+    }
+  }
   .bio{
-    background: white;
-    background-image: linear-gradient(#f2f2f2 0.1em, transparent 0.1em), linear-gradient(90deg, #f2f2f2 0.1em, transparent 0.1em);
-    background-size: 3em 3em;
-    padding: 48px 0;
+    max-width: 45%;
     .bio-wrapper{
-      max-width: 800px;
+      // max-width: 800px;
       margin: auto;
       background-color: white;
       box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-      padding: 14px 36px;
+      padding: 14px 60px 40px 24px;
       border-radius: 14px;
+      &:hover:after{
+        transform: translate(20%, -50%) rotate(-90deg);
+      }
+       &:after{
+         content: "";
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-image: url(./arrow.svg);
+        background-size: contain;
+        right: 14px;
+        bottom: 0;
+        transform: translateY(-50%) rotate(-90deg);
+        transition: all 0.4s ease;
+      }
     }
     a{
-      // text-decoration: underline;
-       border-bottom: 1px solid black;
+      text-decoration: underline;
     }
     h2{
-      font-size: 36px;
+      font-size: 28px;
+      position: relative;
+    }
+    
+    p{
+      display: -webkit-box; /* Required for -webkit-line-clamp */
+      -webkit-box-orient: vertical; /* Required for -webkit-line-clamp */
+      -webkit-line-clamp: 3; /* Set the desired number of lines */
+      overflow: hidden; /* Hide any text that overflows */
     }
   }
   .wrapper{
@@ -259,7 +290,6 @@ h3{
     margin-left: auto;
     margin-right: auto;
   }
-  // background-color: $grey;
   .topics{
     display: flex;
     margin-top: 48px;
@@ -269,12 +299,11 @@ h3{
   }
   .topic{
     width: fit-content;
-    padding: 14px 24px;
+    padding: 14px 24px 24px 24px;
     align-items: center;
     color: $black;
-    // background-color: white;
     margin-right: 14px;
-    margin-bottom: 24px;
+    margin-bottom: 36px;
     transition: all 0.4s ease;
     cursor: pointer;
     width: 23%;
@@ -282,36 +311,43 @@ h3{
     border: 1px solid $black;
     border-radius: 14px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    &:after{
+      content: "";
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-image: url(./arrow.svg);
+      background-size: contain;
+      left: calc(50% - 20px);
+      bottom: -40px;
+      transform: translateY(-50%);
+      transition: all 0.4s ease;
+    }
+    &:hover:after{
+        transform: translateY(-50%) rotate(180deg);
+      }
+    &:hover{
+      .topic-text {
+        -webkit-box-orient: vertical; /* Required for -webkit-line-clamp */
+        -webkit-line-clamp: none; /* Set the desired number of lines */
+      }
+    }
     .topic-text {
-      max-height: 210px; // collapsed height
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-
-      &.expanded {
-        max-height: none;
-      }
+      display: -webkit-box; /* Required for -webkit-line-clamp */
+      -webkit-box-orient: vertical; /* Required for -webkit-line-clamp */
+      -webkit-line-clamp: 4; /* Set the desired number of lines */
+      overflow: hidden; /* Hide any text that overflows */
+      transition: all 0.4s ease;
     }
-
-    .readmore-btn {
-      width: 100%;
-      text-align: right;
-      margin-top: 14px;
-      background: none;
-      border: none;
-      color: $pink;
-      cursor: pointer;
-      font-weight: bold;
-
-      &:hover {
-        text-decoration: underline;
-      }
-      }
     p, li{
-      font-size: 14px;
+      font-size: 16px;
     }
-    ul{
-      padding-inline-start: 14px;
-      margin-top: 0;
+    strong{
+      font-weight: 400;
+    }
+    h3{
+      font-weight: bold;
+      text-decoration: underline;
     }
   }
 }
@@ -427,22 +463,30 @@ h3{
     color: $pink;
   }
   &.false{
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 70vh;
     .organization{
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
       border: none;
-      p,li{
+      background-color: $pink;
+      color: white;
+      p{
         font-size: 18px;
+        display: -webkit-box; /* Required for -webkit-line-clamp */
+        -webkit-box-orient: vertical; /* Required for -webkit-line-clamp */
+        -webkit-line-clamp: 5; /* Set the desired number of lines */
+        overflow: hidden; /* Hide any text that overflows */
       }
       h3{
         font-size: 36px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid $black;
+        text-decoration: underline;
+        &:after{
+          background-image: url(./arrow2.svg);
+        }
       }
     }
   }
@@ -477,20 +521,18 @@ h3{
     }
     h3{
       max-width: 80%;
+      text-decoration: underline;
       &:after{
-        content: "i";
+        content: "";
         position: absolute;
-        top: 14px;
-        right: 14px;
-        background-color: $yellow;
-        border-radius: 50%;
         width: 40px;
         height: 40px;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
+        background-image: url(./arrow.svg);
+        background-size: contain;
+        right: 14px;
+        top: 30px;
+        transform: translateY(-50%) rotate(-90deg);
+        transition: all 0.4s ease;
       }
     }
   }
@@ -559,6 +601,9 @@ ul, ol{
   p, li{
     font-size: 14px;
   }
+  h3{
+    text-decoration: underline;
+  }
 }
 .modal-close {
   position: absolute;
@@ -568,4 +613,5 @@ ul, ol{
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
+  color: $pink;
 }

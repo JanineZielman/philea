@@ -38,15 +38,16 @@
   transform: scale(0) translate(-50%, -50%);
   text-align: center;
   z-index: -1;
-  &:nth-child(3n){
+  background-color: #f23652;
+  &:nth-child(2n){
     background-color: #f23652;
   }
-  &:nth-child(3n+1){
-    background-color: #ffd766;
+  &:nth-child(2n+1){
+    background-color: #d6cdcd;
   }
-  &:nth-child(3n+2){
-    background-color: #acbc4b;
-  }
+  // &:nth-child(3n+2){
+  //   background-color: #acbc4b;
+  // }
 }
 
 .wordcloud p:nth-child(1) {

@@ -29,7 +29,7 @@ const DeepDive: FC<DeepDiveProps> = ({ slice }) => {
       className="organizations-section"
     >
       {slice.primary.carousel.length > 1 &&
-        <h2>Organizations</h2>
+        <h2>FIND Members</h2>
       }
       <div className={`organizations ${slice.primary.carousel.length > 1}`}>
         {slice.primary.carousel.map((item, i) => (

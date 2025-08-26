@@ -1,5 +1,5 @@
 'use client'
-import { FC, useState } from "react";
+import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
@@ -9,15 +9,6 @@ import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 export type KeyTopicsProps = SliceComponentProps<Content.KeyTopicsSlice>;
 
 const KeyTopics: FC<KeyTopicsProps> = ({ slice }) => {
-  // Track which topic is expanded
-  const [expandedTopics, setExpandedTopics] = useState<{ [key: number]: boolean }>({});
-
-  const toggleTopic = (index: number) => {
-    setExpandedTopics((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
-  };
 
   return (
     <section
@@ -29,8 +20,6 @@ const KeyTopics: FC<KeyTopicsProps> = ({ slice }) => {
 
       <div className="topics">
         {slice.primary.topics.map((item, i) => {
-          const isExpanded = expandedTopics[i] || false;
-
           return (
             <div
               className={`topic ${i % 2 === 1 ? "alt-color" : ""}`}
@@ -40,16 +29,9 @@ const KeyTopics: FC<KeyTopicsProps> = ({ slice }) => {
             >
               <h3>{item.title}</h3>
 
-              <div className={`topic-text ${isExpanded ? "expanded" : "collapsed"}`}>
+              <div className={`topic-text`}>
                 <PrismicRichText field={item.text} />
               </div>
-
-              <button
-                onClick={() => toggleTopic(i)}
-                className="readmore-btn"
-              >
-                {isExpanded ? "Read Less" : "Read More"}
-              </button>
             </div>
           );
         })}
