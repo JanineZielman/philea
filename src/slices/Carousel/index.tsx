@@ -51,10 +51,9 @@ const DeepDive: FC<DeepDiveProps> = ({ slice }) => {
                 key={`organization${i}`}
                 data-aos="fade-up"
                 data-aos-delay={i * 100}
-                onClick={() => openDeepDive(item)}
-                style={{ cursor: "pointer" }}
               >
                 {content}
+                <div className="arrow-link" onClick={() => openDeepDive(item)}></div>
               </div>
             );
           }
