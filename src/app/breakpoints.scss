@@ -6,6 +6,7 @@
   .hero{
     h1{
       font-size: 42px;
+      margin-top: 100px;
     }
     p{
       font-size: 16px;
@@ -38,5 +39,43 @@
     width: 150px;
     height: 150px;
     padding: 5px;
+  }
+  .topics{
+    flex-direction: column;
+    .topic{
+      width: 100%;
+    }
+  }
+  .deepdives-menu{
+    flex-direction: row;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    top: 14px;
+    .deepdives-menu-button{
+      font-size: 14px;
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+  .deepdives-menu .deepdives-menu-button:hover{
+    width: fit-content;
+  }
+  .deepdives-menu .deepdives-menu-button:hover .text{
+    display: none;
+  }
+  .deepdive .flex-wrap{
+    flex-direction: column;
+    .text-content, .bio{
+      width: 100%;
+      max-width: 100%;
+      h2{
+        font-size: 20px;
+      }
+    }
+  }
+  .quote p{
+    font-size: 24px;
+    padding: 0 14px;
   }
 }
