@@ -1,0 +1,28 @@
+{
+  "id": "footer",
+  "type": "SharedSlice",
+  "name": "Footer",
+  "description": "Footer",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "footer": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Footer",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,hyperlink,list-item,o-list-item,strong,em"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

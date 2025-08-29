@@ -6,6 +6,7 @@ export const components = {
   deep_dive: dynamic(() => import("./Carousel")),
   deepdives: dynamic(() => import("./Deepdives")),
   foldable: dynamic(() => import("./Foldable")),
+  footer: dynamic(() => import("./Footer")),
   hero: dynamic(() => import("./Hero")),
   image_text: dynamic(() => import("./ImageText")),
   key_topics: dynamic(() => import("./KeyTopics")),

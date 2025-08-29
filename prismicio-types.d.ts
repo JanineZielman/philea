@@ -179,6 +179,7 @@ export type DeepdiveDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | FooterSlice
   | DeepdivesSlice
   | KeyTopicsSlice
   | DeepDiveSlice
@@ -510,6 +511,48 @@ export type FoldableSlice = prismic.SharedSlice<
   "foldable",
   FoldableSliceVariation
 >;
+
+/**
+ * Primary content in *Footer → Default → Primary*
+ */
+export interface FooterSliceDefaultPrimary {
+  /**
+   * Footer field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.footer
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  footer: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Footer Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FooterSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FooterSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Footer*
+ */
+type FooterSliceVariation = FooterSliceDefault;
+
+/**
+ * Footer Shared Slice
+ *
+ * - **API ID**: `footer`
+ * - **Description**: Footer
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FooterSlice = prismic.SharedSlice<"footer", FooterSliceVariation>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -860,6 +903,10 @@ declare module "@prismicio/client" {
       FoldableSliceDefaultPrimary,
       FoldableSliceVariation,
       FoldableSliceDefault,
+      FooterSlice,
+      FooterSliceDefaultPrimary,
+      FooterSliceVariation,
+      FooterSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,

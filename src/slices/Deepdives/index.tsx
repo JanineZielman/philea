@@ -48,10 +48,19 @@ const Deepdives: FC<DeepdivesProps> = ({ slice }) => {
             onClick={() => handleScroll(`deepdive-${i}`)}
             className="deepdives-menu-button"
           >
-            {i + 1}
+            <span className="menu-label number">{i + 1}</span>
+            <span className="menu-label text">Deep Dive {i + 1}</span>
           </button>
         ))}
+         <Link
+            href="/brussel"
+            className="deepdives-menu-button pink"
+          >
+            <span className="menu-label number"></span>
+            <span className="menu-label text">Brussels </span>
+          </Link>
       </div>
+
 
       {slice.primary.deepdives.map((page, i) => {
         const deepdive = page.deepdive;
@@ -70,7 +79,6 @@ const Deepdives: FC<DeepdivesProps> = ({ slice }) => {
 
             <div className="content">
               {data.quote && <div className="wrapper quote" data-aos="fade-up"><PrismicRichText field={data.quote} /></div>}
-              {data.key_takeaways && <div className="keys"><h2>Key Takeaways</h2><PrismicRichText field={data.key_takeaways} /></div>}
               <div className="flex-wrap">
                 {data.text && <div className="text-content" data-aos="fade-up"><PrismicRichText field={data.text} /></div>}
                 {data.bio && <div className="bio">
@@ -81,6 +89,7 @@ const Deepdives: FC<DeepdivesProps> = ({ slice }) => {
                   </Link>
                 </div>}
               </div>
+              {data.key_takeaways && <div className="keys"><h2>Key Takeaways</h2><PrismicRichText field={data.key_takeaways} /></div>}
             </div>
           </div>
         );

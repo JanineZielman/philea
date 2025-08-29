@@ -44,6 +44,17 @@ h3{
   font-weight: 500;
 }
 
+h2 a, p a{
+  transition: all 0.4s ease;
+  &:hover{
+   text-decoration-color: transparent!important;
+  }
+}
+
+.pink{
+  background-color: $pink!important;
+}
+
 .hero{
   width: 100vw;
   height: 100vh;
@@ -101,36 +112,59 @@ h3{
 }
 
 .deepdives-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s;
+  position: absolute; // start as absolute
+  align-items: end;
+
+  &.fixed {
+    position: fixed; // becomes fixed once in view
+    z-index: 1000;
+  }
+
+  .deepdives-menu-button {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    right: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: all 0.3s;
-    position: absolute; // start as absolute
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: none;
+    background-color: $yellow;
+    color: $black;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    padding: 0 1rem;
 
-    &.fixed {
-      position: fixed; // becomes fixed once in view
-      z-index: 1000;
+    // Default state
+    .text {
+      display: none;
+      white-space: nowrap;
     }
-    .deepdives-menu-button {
-      width: 3rem;
-      height: 3rem;
-      border-radius: 50%;
-      border: none;
-      background-color: $yellow;
-      color: $black;
-      cursor: pointer;
-      font-weight: bold;
-      transition: all 0.4s ease;
-      font-size: 20px;
 
-      &:hover {
-        transform: scale(1.2);
-      }
+    &:hover {
+      border-radius: 2rem; // pill shape
+      width: 10rem;        // expand width smoothly
+    }
+
+    &:hover .number {
+      display: none;
+    }
+
+    &:hover .text {
+      display: inline;
     }
   }
+}
+
 
 .deepdive{
   .hero{
@@ -161,7 +195,7 @@ h3{
       color: white;
       width: 45%;
       margin-right: 4%;
-      font-weight: 500;
+      font-weight: 600;
     }
   }
   .bio{
@@ -681,6 +715,11 @@ ul, ol{
 footer{
   background-color: $pink;
   padding: 48px 14px;
-  font-size: 14px;
-  text-align: center;
+  p{
+    font-size: 14px;
+    max-width: 600px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
