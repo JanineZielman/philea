@@ -1,6 +1,6 @@
 'use client'
 import { FC } from "react";
-import { Content, KeyTextField, RichTextField } from "@prismicio/client";
+import { Content, KeyTextField } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 export type FoldableProps = SliceComponentProps<Content.FoldableSlice>;
@@ -22,7 +22,7 @@ const Foldable: FC<FoldableProps> = ({ slice }) => {
             <FoldItem
               key={index}
               title={item.title}
-              text={item.text}
+              link={item.link_to_section}
               delay={index * 100} // 👈 pass delay instead of using key
             />
           ))}
@@ -37,24 +37,22 @@ const Foldable: FC<FoldableProps> = ({ slice }) => {
 };
 
 type FoldItemProps = {
-  title: KeyTextField;     // string | null
-  text: RichTextField;     // rich text
+  title: KeyTextField;     // string | null   
   delay?: number;          // 👈 new prop
+  link: KeyTextField;
 };
 
-const FoldItem: FC<FoldItemProps> = ({ title, text, delay = 0 }) => {
+const FoldItem: FC<FoldItemProps> = ({ title, link, delay = 0 }) => {
   return (
     <div className="fold">
-      <div
+      <a
         className="fold-title"
         data-aos="fade-left"
         data-aos-delay={delay} // 👈 use delay instead of key
+        href={link ? link : '#'}
       >
         <span>{title ?? "Untitled"}</span>
-      </div>
-      <div className="fold-text">
-        <PrismicRichText field={text} />
-      </div>
+      </a>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 export const components = {
   deep_dive: dynamic(() => import("./Carousel")),
   deepdives: dynamic(() => import("./Deepdives")),
-  foldable: dynamic(() => import("./Foldable")),
+  foldable: dynamic(() => import("./Menu")),
   footer: dynamic(() => import("./Footer")),
   hero: dynamic(() => import("./Hero")),
   image_text: dynamic(() => import("./ImageText")),

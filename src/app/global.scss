@@ -431,18 +431,21 @@ h2 a, p a{
   background: white;
   background-image: linear-gradient(#f2f2f2 0.1em, transparent 0.1em), linear-gradient(90deg, #f2f2f2 0.1em, transparent 0.1em);
   background-size: 3em 3em;
+  a{
+    text-decoration: none;
+  }
   .fold-section{
     margin-top: 48px;
   }
   .fold{
-    margin-bottom: 14px;
-    &:hover{
-      .fold-text{
-        visibility: visible;
-        height: 150px;
-        opacity: 1;
-      }
-    }
+    margin-bottom: 24px;
+    // &:hover{
+    //   .fold-text{
+    //     visibility: visible;
+    //     height: 150px;
+    //     opacity: 1;
+    //   }
+    // }
     .fold-text{
       visibility: hidden;
       height: 0;
@@ -458,6 +461,7 @@ h2 a, p a{
     cursor: pointer;
     padding-bottom: 7px;
     border-bottom: 1px solid $black;
+    padding-right: 40px;
     &:hover:after{
       transform: translateY(-50%) rotate(90deg);
     }

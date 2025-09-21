@@ -1,7 +1,7 @@
 {
   "id": "foldable",
   "type": "SharedSlice",
-  "name": "Foldable",
+  "name": "Menu",
   "description": "Foldable",
   "variations": [
     {
@@ -41,13 +41,11 @@
                   "placeholder": ""
                 }
               },
-              "text": {
-                "type": "StructuredText",
+              "link_to_section": {
+                "type": "Text",
                 "config": {
-                  "label": "Text",
-                  "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph,hyperlink,list-item,o-list-item,strong,em"
+                  "label": "Link to section",
+                  "placeholder": ""
                 }
               }
             }

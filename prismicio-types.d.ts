@@ -411,11 +411,11 @@ export type DeepdivesSlice = prismic.SharedSlice<
 >;
 
 /**
- * Item in *Foldable → Default → Primary → Foldable*
+ * Item in *Menu → Default → Primary → Foldable*
  */
 export interface FoldableSliceDefaultPrimaryFoldableItem {
   /**
-   * Title field in *Foldable → Default → Primary → Foldable*
+   * Title field in *Menu → Default → Primary → Foldable*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -425,22 +425,22 @@ export interface FoldableSliceDefaultPrimaryFoldableItem {
   title: prismic.KeyTextField;
 
   /**
-   * Text field in *Foldable → Default → Primary → Foldable*
+   * Link to section field in *Menu → Default → Primary → Foldable*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: foldable.default.primary.foldable[].text
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   * - **API ID Path**: foldable.default.primary.foldable[].link_to_section
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  text: prismic.RichTextField;
+  link_to_section: prismic.KeyTextField;
 }
 
 /**
- * Primary content in *Foldable → Default → Primary*
+ * Primary content in *Menu → Default → Primary*
  */
 export interface FoldableSliceDefaultPrimary {
   /**
-   * Title field in *Foldable → Default → Primary*
+   * Title field in *Menu → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -450,7 +450,7 @@ export interface FoldableSliceDefaultPrimary {
   title: prismic.KeyTextField;
 
   /**
-   * Text field in *Foldable → Default → Primary*
+   * Text field in *Menu → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -460,7 +460,7 @@ export interface FoldableSliceDefaultPrimary {
   text: prismic.RichTextField;
 
   /**
-   * Foldable field in *Foldable → Default → Primary*
+   * Foldable field in *Menu → Default → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -472,7 +472,7 @@ export interface FoldableSliceDefaultPrimary {
   >;
 
   /**
-   * Credits field in *Foldable → Default → Primary*
+   * Credits field in *Menu → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -483,7 +483,7 @@ export interface FoldableSliceDefaultPrimary {
 }
 
 /**
- * Default variation for Foldable Slice
+ * Default variation for Menu Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -496,12 +496,12 @@ export type FoldableSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Slice variation for *Foldable*
+ * Slice variation for *Menu*
  */
 type FoldableSliceVariation = FoldableSliceDefault;
 
 /**
- * Foldable Shared Slice
+ * Menu Shared Slice
  *
  * - **API ID**: `foldable`
  * - **Description**: Foldable
