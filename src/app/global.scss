@@ -462,6 +462,7 @@ h2 a, p a{
     padding-bottom: 7px;
     border-bottom: 1px solid $black;
     padding-right: 40px;
+    position: relative;
     &:hover:after{
       transform: translateY(-50%) rotate(90deg);
     }

@@ -13,8 +13,8 @@ const Foldable: FC<FoldableProps> = ({ slice }) => {
       className="foldable"
     >
       <div className="wrapper">
-        <h2 data-aos="fade-up">{slice.primary.title}</h2>
-        <div data-aos="fade-up">
+        <h2>{slice.primary.title}</h2>
+        <div>
           <PrismicRichText field={slice.primary.text} />
         </div>
         <div className="fold-section">
@@ -23,12 +23,11 @@ const Foldable: FC<FoldableProps> = ({ slice }) => {
               key={index}
               title={item.title}
               link={item.link_to_section}
-              delay={index * 100} // 👈 pass delay instead of using key
             />
           ))}
         </div>
 
-        <div className="credits" data-aos="fade-up">
+        <div className="credits">
           <PrismicRichText field={slice.primary.credits}/>
         </div>
       </div>
@@ -38,17 +37,14 @@ const Foldable: FC<FoldableProps> = ({ slice }) => {
 
 type FoldItemProps = {
   title: KeyTextField;     // string | null   
-  delay?: number;          // 👈 new prop
   link: KeyTextField;
 };
 
-const FoldItem: FC<FoldItemProps> = ({ title, link, delay = 0 }) => {
+const FoldItem: FC<FoldItemProps> = ({ title, link }) => {
   return (
     <div className="fold">
       <a
         className="fold-title"
-        data-aos="fade-left"
-        data-aos-delay={delay} // 👈 use delay instead of key
         href={link ? link : '#'}
       >
         <span>{title ?? "Untitled"}</span>
